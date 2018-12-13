@@ -29,10 +29,10 @@ class FilterLocations extends Component {
                     onClick={this.onNewSearch}/>
             
             <div className="location-list container">
-        <ol className="location-list">
-            {this.props.locations.map((location) => (
-                <li key={location.name} className="location-list-item" onClick={this.onListItemClick}>
-                {location.name}</li>
+                <ol className="location-list">
+                {this.props.locations.map((location) => (
+                    <li key={location.name} className="location-list-item" onClick={this.onListItemClick}>
+                    {location.name}</li>
             ))}
         </ol>
         </div>
