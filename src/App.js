@@ -8,7 +8,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    allLocations: locations
+    allLocations: locations,
   }
   render() {
     return (
@@ -18,6 +18,7 @@ class App extends Component {
           <button><FaBars/></button>
         </header>
         <MapContainer locations={this.state.allLocations}/>
+       
 
       </div>
     );
