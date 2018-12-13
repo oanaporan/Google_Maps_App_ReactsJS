@@ -27,8 +27,44 @@ button {
   
 }
 
-
 .App-link {
   color: #61dafb;
 }
+
+/* Search Bar */
+.list-locations {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: fixed;
+  left: 10px;
+  width: 300px;
+  height: 80%;
+  top: 17vh;
+  border-bottom: 1px solid #d5d8df;
+}
+
+
+input.search-locations {
+  position: absolute;
+    height: 25px;
+    width: 80%;
+    margin: 5%;
+    font-size: 15px;
+    left: inherit;
+}
+ol.location-list {
+  border-top: 1px solid #c5c8cf;
+  margin-top: 20%;
+  padding: 35px;
+  line-height: 2;
+  font-size: medium;
+  list-style-type: none;
+  text-align: initial;
+}
+
+li.location-list-item:hover {
+  color: #23a6ca;
+}
+
 
