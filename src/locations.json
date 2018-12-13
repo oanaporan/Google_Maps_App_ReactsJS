@@ -1,0 +1,45 @@
+[
+    {
+        "name": "JoJo",
+        "address": "160 E 64th St, New York, NY 10065, USA",
+        "url": "http://www.jojorestaurantnyc.com/",
+        "position": {"lat": 40.7650646,"lng": -73.967902317}
+    },
+    {
+        "name": "Fig & Olive",
+        "address": "808 Lexington Ave, New York, NY 10065, USA",
+        "url": "http://www.figandolive.com/",
+        "position": {"lat": 40.7644156,"lng": -73.96910717}
+    },
+    {
+        "name": "LAVO Italian Restaurant",
+        "address": "39 E 58th St, New York, NY 10022, USA",
+        "url": "http://www.lavony.com/",
+        "position": {"lat": 40.7629043,"lng": -73.973652417}
+    },
+    {
+        "name": "Benihana",
+        "address": "47 W 56th St, New York, NY 10019, USA",
+        "url": "https://www.benihana.com/locations/newyorkwest-ny-we/",
+        "position": {"lat": 40.7634566,"lng": -73.978973117}
+    },
+    {
+        "name": "Patsy's",
+        "address": "236 W 56th St, New York, NY 10019, USA",
+        "url": "http://www.patsys.com/",
+        "position": {"lat": 40.7656201,"lng": -73.984939117}
+    },
+    {
+        "name": "Nougatine at Jean-Georges",
+        "address": "1 Central Park West, New York, NY 10023, USA",
+        "url": "http://www.jean-georgesrestaurant.com/",
+        "position": {"lat": 40.7690295,"lng": -73.983814217}
+    },
+    {
+        "name": "Landmarc",
+        "address": "10 Columbus Cir #3, New York, NY 10019, USA",
+        "url": "http://landmarc-restaurant.com/",
+        "position": {"lat": 40.7685566,"lng": -73.985375317}
+    }
+    
+]
