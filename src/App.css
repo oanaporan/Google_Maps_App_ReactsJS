@@ -11,6 +11,21 @@
   justify-content: center;
   font-size: calc(10px + .5vmin);
   color: white;
+  padding-left: 40px;
+  
+}
+button {
+  position: absolute;
+  background-color: rgb(65, 65, 68);
+  color: antiquewhite;
+  width: 55px;
+  height: 35px;
+  left: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  top: 20px;
+  font-size: 15px;
+  border: none;
 }
 
 .App-link {
