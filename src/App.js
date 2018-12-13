@@ -13,7 +13,7 @@ class App extends Component {
         <header className="App-header">
           <h1> Grab a bite near Central Park, NY</h1>
         </header>
-        <MapContainer allLocations={this.state.allLocations}/>
+        <MapContainer locations={this.state.allLocations}/>
 
       </div>
     );
