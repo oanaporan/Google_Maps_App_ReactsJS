@@ -1,20 +1,30 @@
-import  React, { Component } from 'react';
+import React, { Component } from 'react';
 import LocationDetails from './LocationDetails';
+
+import * as ZomatoAPI from './ZomatoAPI';
 
 
 class FilterLocations extends Component {
     state = {
         showDetails: false,
-        selectedLocation: {}
-    }
-
-    componentDidMount() {
-
+        selectedLocation: {},
+        locationData: {}
     }
 
     onListItemClick = (location) => {
         this.setState({ selectedLocation : location , showDetails : true })
-    }
+        let {name} = location; 
+        let { lat, lng } = location.position;
+        ZomatoAPI.get(name, lat, lng).then(response => {
+            if(response.error) {
+                return this.setState({ locationData : {} })
+            } else {
+                return this.setState({ locationData : response[0].restaurant })
+                }
+            })
+        }
+        
+    
 
     onNewSearch = () => {
         this.setState({ showDetails: false })
@@ -42,7 +52,7 @@ class FilterLocations extends Component {
         </ol>
         </div>
                 {this.state.showDetails && (
-                   <LocationDetails selectedLocation = {this.state.selectedLocation}/>
+                   <LocationDetails selectedLocation = {this.state.selectedLocation} locationData = {this.state.locationData}/>
                 )}
         </div>
         )
