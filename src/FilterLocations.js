@@ -1,4 +1,5 @@
 import  React, { Component } from 'react';
+import LocationDetails from './LocationDetails';
 
 
 class FilterLocations extends Component {
@@ -7,8 +8,12 @@ class FilterLocations extends Component {
         selectedLocation: {}
     }
 
+    componentDidMount() {
+
+    }
+
     onListItemClick = (location) => {
-        this.setState({ selectedLocation : location })
+        this.setState({ selectedLocation : location , showDetails : true })
     }
 
     onNewSearch = () => {
@@ -31,15 +36,13 @@ class FilterLocations extends Component {
             <div className="location-list container">
                 <ol className="location-list">
                 {this.props.locations.map((location) => (
-                    <li key={location.name} className="location-list-item" onClick={this.onListItemClick}>
+                    <li key={location.name} className="location-list-item" location={location} onClick={() => this.onListItemClick(location)}>
                     {location.name}</li>
             ))}
         </ol>
         </div>
                 {this.state.showDetails && (
-                    <div className="location-details">
-                        <h3> hi</h3>
-                    </div>
+                   <LocationDetails selectedLocation = {this.state.selectedLocation}/>
                 )}
         </div>
         )
