@@ -39,8 +39,8 @@ button {
   position: fixed;
   left: 10px;
   width: 300px;
-  height: 80%;
-  top: calc(20px+2vmin);
+  height: calc(100%-10vmin);
+  top: calc(10px+10vmin);
   border-bottom: 1px solid #d5d8df;
 }
 

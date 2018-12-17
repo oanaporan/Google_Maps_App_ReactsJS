@@ -21,7 +21,7 @@ class MapContainer extends Component {
         let { locations } = this.props
         let { activeMarker, activeMarkerProps } = this.state
         return(
-            <div style={{ height: '100%', width: '100%'}}>
+            <div style={{ height: 'calc(100%-10vmin', width: '100%'}}>
             <Map 
                 role="application"
                 aria-label="map"
