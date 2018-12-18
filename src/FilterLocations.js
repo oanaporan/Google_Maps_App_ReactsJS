@@ -13,11 +13,12 @@ class FilterLocations extends Component {
 
     onListItemClick = (location) => {
         this.setState({ selectedLocation : location , showDetails : true })
+
         let {name} = location; 
         let { lat, lng } = location.position;
         ZomatoAPI.get(name, lat, lng).then(response => {
             if(response.error) {
-                return this.setState({ locationData : {} })
+                return this.setState({ locationData : {error:"Something went wrong..."} })
             } else {
                 return this.setState({ locationData : response[0].restaurant })
                 }
