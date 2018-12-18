@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MapContainer from './MapContainer';
 import locations from './locations';
-import FilterLocations from './FilterLocations';
+
 
 import { FaBars } from 'react-icons/fa';
 import './App.css';
@@ -13,16 +13,19 @@ class App extends Component {
   state = {
     allLocations: locations,
     query : '',
-    toggleMenu: false
-  }
-
-  updateQuery = (query) => {
-    this.setState({ query: query.trim() });
+    toggleMenu: false,
   }
 
   onToggleMenu = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu})
   }
+
+  updateQuery = (query) => {
+    this.setState({ query: query.trim()});
+  }
+
+  
+    
 
   render() {
     const { allLocations, query } = this.state
@@ -40,17 +43,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1> Grab a bite near Central Park, NY</h1>
-          <button onClick={this.onToggleMenu}><FaBars/></button>
+          <button className="toggle-menu" onClick={this.onToggleMenu}><FaBars/></button>
         </header>
-        <MapContainer 
-                      locations={showingLocations}/>
-        
-        {this.state.toggleMenu && (
-          <FilterLocations locations={showingLocations}
-                            query={this.state.query}
-                            onUpdateQuery={this.updateQuery} />  
-        )}
-
+        <MapContainer toggleMenu={this.state.toggleMenu}
+                     locations={showingLocations}
+                      query={this.state.query}
+                      onUpdateQuery={this.updateQuery}
+                      onListItemClick={this.onListItemClick}
+                      showDetails={this.state.showDetails}
+                      selectedLocation={this.state.selectedLocation}
+                      locationData={this.state.locationData}/>
       </div>
     );
   }

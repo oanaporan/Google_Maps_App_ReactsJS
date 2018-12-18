@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* App Header */
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
@@ -9,28 +9,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(7px + 1vmin);
+  font-size: calc(5px + 1vmin);
   color: white;
   padding-left: 40px;
   
 }
-button {
+/* Menu button */
+.toggle-menu {
+  background-color: #737579;
   position: absolute;
   min-width: 55px;
-  min-height: 35px;
-  left: 0;
+  min-height: 55px;
+  left: 25px;
   margin-left: calc(10px+.5vmin);
   margin-right: calc(10px+.5vmin);
-  top: 30px;
+  top: 10px;
   font-size: 25px;
-  
+  border: none;
+  border-radius: 5px;
 }
 
 .App-link {
   color: #282c34;
 }
 
-/* Search Bar */
+/* Search div */
 .list-locations {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
@@ -43,7 +46,7 @@ button {
   border-bottom: 1px solid #d5d8df;
 }
 
-
+/*Search Input*/
 input.search-locations {
   position: absolute;
     height: 25px;
@@ -52,18 +55,25 @@ input.search-locations {
     font-size: 15px;
     left: inherit;
 }
+/* Locations list */
 ol.location-list {
   border-top: 1px solid #c5c8cf;
   margin-top: 20%;
   padding: 35px;
   padding-bottom: 10px;
   line-height: 2;
-  font-size: medium;
-  list-style-type: none;
+  
+}
+/* Location-button*/
+button.location-list-item {
+  width: 100%;
   text-align: initial;
+  font-size: medium; 
+  border: none;
+  background: none;
 }
 
-li.location-list-item:hover {
+button.location-list-item:hover {
   color: #23a6ca;
 }
 
@@ -82,11 +92,36 @@ li.location-list-item:hover {
   line-height: 5px;
 
 }
-
+/* Restaurant Image */
  .featured-image {
    margin-top: 15px;
   font-size: small;
 }
+
+@media (max-width: 450px) {
+  .list-locations {
+    width: 95%;
+  }
+
+  .location-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .App-header {
+    min-height: 15vh;
+    align-items: top;
+  }
+  .toggle-menu {
+    position: absolute;
+    height: 15vh;
+    left: 2px;
+    top: 2px;
+  }
+
+}
+
 
 
 
