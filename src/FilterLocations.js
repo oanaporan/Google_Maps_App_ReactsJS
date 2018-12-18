@@ -1,36 +1,11 @@
 import React, { Component } from 'react';
 import LocationDetails from './LocationDetails';
 
-import * as ZomatoAPI from './ZomatoAPI';
-
 
 class FilterLocations extends Component {
-    state = {
-        showDetails: false,
-        selectedLocation: {},
-        locationData: {}
-    }
-
-    onListItemClick = (location) => {
-        this.setState({ selectedLocation : location , showDetails : true })
-
-        let {name} = location; 
-        let { lat, lng } = location.position;
-        ZomatoAPI.get(name, lat, lng).then(response => {
-            if(response.error) {
-                return this.setState({ locationData : {error:"Something went wrong fetching the data..."} })
-            } else {
-                return this.setState({ locationData : response[0].restaurant })
-                }
-            })
-        }
-        
     
-
-    onNewSearch = () => {
-        this.setState({ showDetails: false })
-    }
-
+    
+   
     render() {
 
         return(
@@ -47,13 +22,13 @@ class FilterLocations extends Component {
             <div className="location-list container">
                 <ol className="location-list">
                 {this.props.locations.map((location) => (
-                    <li key={location.name} className="location-list-item" location={location} onClick={() => this.onListItemClick(location)}>
+                    <li key={location.name} className="location-list-item" location={location} onClick={() => this.props.onListItemClick(location)}>
                     {location.name}</li>
             ))}
         </ol>
         </div>
-                {this.state.showDetails && (
-                   <LocationDetails selectedLocation = {this.state.selectedLocation} locationData = {this.state.locationData}/>
+                {this.props.showDetails && (
+                   <LocationDetails selectedLocation = {this.props.selectedLocation} locationData = {this.props.locationData}/>
                 )}
         </div>
         )

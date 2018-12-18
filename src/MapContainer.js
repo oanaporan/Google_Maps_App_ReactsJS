@@ -4,22 +4,16 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 class MapContainer extends Component {
     state = {
         map: null,
-        showInfoWindow: false,
-        activeMarker: {},
-        activeMarkerProps: {}
     }
 
     mapReady = (props, map) => {
         this.setState({map})
     }
 
-    onClickMarker = (props, marker, e) => {
-        this.setState({ showInfoWindow: true, activeMarker: marker, activeMarkerProps: props})
-    }
+    
 
     render() {
-        let { locations } = this.props
-        let { activeMarker, activeMarkerProps } = this.state
+        let { locations, activeMarker, activeMarkerProps, showInfoWindow } = this.props;
         return(
             <div style={{ height: 'calc(100%-10vmin', width: '100%'}}>
             <Map 
@@ -39,18 +33,18 @@ class MapContainer extends Component {
                             key={location.name}
                             position={location.position}
                             animation={2}
-                            onClick={this.onClickMarker}
                             name={location.name}
                             address={location.address}
-                            url={location.url}/>
+                            url={location.url}
+                            onClick={this.props.onClickMarker}/>
                             
                  ))}
                     <InfoWindow 
                             marker={activeMarker}
-                            visible={this.state.showInfoWindow}>
+                            visible={showInfoWindow}>
                          <div className='info-window'>
                          <h4>{activeMarkerProps.name}</h4>
-                         <p>{activeMarker.address}</p>
+                         <p>{activeMarkerProps.address}</p>
                          </div>
                     </InfoWindow>
                          
