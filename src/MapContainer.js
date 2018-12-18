@@ -41,6 +41,7 @@ class MapContainer extends Component {
                             animation={2}
                             onClick={this.onClickMarker}
                             name={location.name}
+                            address={location.address}
                             url={location.url}/>
                             
                  ))}
@@ -49,10 +50,9 @@ class MapContainer extends Component {
                             visible={this.state.showInfoWindow}>
                          <div className='info-window'>
                          <h4>{activeMarkerProps.name}</h4>
-                         <a href={activeMarkerProps.url}>Website</a>
+                         <p>{activeMarker.address}</p>
                          </div>
-                            
-                            </InfoWindow>
+                    </InfoWindow>
                          
 
 
