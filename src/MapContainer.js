@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import * as ZomatoAPI from './ZomatoAPI';
 
-
 import LocationDetails from './LocationDetails';
+import MapNotLoaded from './MapNotLoaded';
 
 class MapContainer extends Component {
     state = {
@@ -25,7 +25,8 @@ class MapContainer extends Component {
     }
 
     onListItemClick = (location) => {
-        this.setState({ selectedLocation : location , showDetails : true })
+        this.setState({ selectedLocation : location , showDetails : true})
+
     
         let {name} = location; 
         let { lat, lng } = location.position;
@@ -36,7 +37,9 @@ class MapContainer extends Component {
                 return this.setState({ locationData : response[0].restaurant })
                 }
             })
+
         }
+    
     
 
     render() {
@@ -61,16 +64,16 @@ class MapContainer extends Component {
                             aria-label='map'
                             key={location.name}
                             position={location.position}
-                            animation={2}
+                            animation={activeMarker ? (location.name === Marker.name ? '1' : '2') : '1'}
                             name={location.name}
                             address={location.address}
                             url={location.url}
-                            onClick={(marker)=>this.onClickMarker()}/>
+                            onClick={this.onClickMarker}/>
                             
                  ))}
                     <InfoWindow 
                             marker={activeMarker}
-                            visible={this.state.showInfoWindow && this.props.showMarker}>
+                            visible={this.state.showInfoWindow}>
                          <div className='info-window'>
                          <h4>{activeMarkerProps.name}</h4>
                          <p>{activeMarkerProps.address}</p>
@@ -114,5 +117,4 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ('AIzaSyC3ByjZ4k1ujc3LLi1V00_k6QwruFlK9KI')
-  })(MapContainer)
+    apiKey: 'AIzaSyC3ByjZ4k1ujc3LLi1V00_k6QwruFlK9KI', LoadingContainer: MapNotLoaded }) (MapContainer)
