@@ -18,7 +18,7 @@ class FilterLocations extends Component {
         let { lat, lng } = location.position;
         ZomatoAPI.get(name, lat, lng).then(response => {
             if(response.error) {
-                return this.setState({ locationData : {error:"Something went wrong..."} })
+                return this.setState({ locationData : {error:"Something went wrong fetching the data..."} })
             } else {
                 return this.setState({ locationData : response[0].restaurant })
                 }
