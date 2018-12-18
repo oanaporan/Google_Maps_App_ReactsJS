@@ -92,7 +92,11 @@ class MapContainer extends Component {
                      type="text"
                      placeholder="Filter Locations..."
                      value={this.props.query}
-                     onChange={(e) => this.props.onUpdateQuery(e.target.value)}
+                     onChange={(e) => {
+                         this.props.onUpdateQuery(e.target.value)
+                         this.setState({ showDetails: false })
+                        }}
+                     
                      onClick={this.onNewSearch}/>
              
              <div className="location-list container">
