@@ -1,4 +1,4 @@
-##React Google Maps Final Project
+### React Google Maps Final Project
 
 Udacity's final project, a single page React App, featuring google maps, a list of locations with on map markers, a filter locations options for finding locations easier, and a third API for rendering details about the map locations. 
 
@@ -20,7 +20,6 @@ The project runs at http://localhost:3000/
 - All application components render on-screen in a responsive manner, and are usable across modern desktop, tablet, and phone browsers.
 
 ### Application Functionality
-## Location Filter
 - Includes a text input field or dropdown menu that filters the map markers and list items to locations matching the text input or selection. Filter function runs error-free.
 
 ### List View
@@ -31,12 +30,10 @@ The project runs at http://localhost:3000/
 - Map displays all location markers by default, and displays the filtered subset of location markers when a filter is applied.
 - Clicking a marker displays unique information about a location  on the page in a separate div.
 
-## Asynchronous Data Usage
 ### Asynchronous API Requests
 - Application utilizes the Google Maps API and Zomato API.
 - All data requests are retrieved in an asynchronous manner using either the Fetch API.
 
-## Location Details Functionality
 
 ### Offline Use
 - When available in the browser, the site uses a service worker to cache responses to requests for site assets. Visited pages are rendered when there is no network access.
