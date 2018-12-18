@@ -67,17 +67,16 @@ li.location-list-item:hover {
   color: #23a6ca;
 }
 
-/* Details Bar */
+/* Location Details */
 .location-details {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   background-color: #ffffff;
   position: fixed;
-  left: calc(10px+4vmin);
   width: 300px;
   height: 80%;
-  top: calc(20px+2vmin);
   border-bottom: 1px solid #d5d8df;
+  font-size: medium;
 }
 
 
