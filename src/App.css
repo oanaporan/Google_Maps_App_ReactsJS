@@ -28,7 +28,7 @@ button {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #282c34;
 }
 
 /* Search Bar */
@@ -36,7 +36,7 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   background-color: #ffffff;
-  position: fixed;
+  position: absolute;
   left: 10px;
   width: 300px;
   height: calc(100%-10vmin);
@@ -57,6 +57,7 @@ ol.location-list {
   border-top: 1px solid #c5c8cf;
   margin-top: 20%;
   padding: 35px;
+  padding-bottom: 10px;
   line-height: 2;
   font-size: medium;
   list-style-type: none;
@@ -72,11 +73,20 @@ li.location-list-item:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   background-color: #ffffff;
-  position: fixed;
+  position: absolute;
   width: 300px;
-  height: 80%;
   border-bottom: 1px solid #d5d8df;
   font-size: medium;
+  text-align: initial;
+  box-sizing: border-box;
+  padding: 10px;
+  line-height: 5px;
+
+}
+
+ .featured-image {
+   margin-top: 15px;
+  font-size: small;
 }
 
 
