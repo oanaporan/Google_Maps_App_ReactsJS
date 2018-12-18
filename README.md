@@ -32,7 +32,7 @@ The project runs at http://localhost:3000/
 
 ### Asynchronous API Requests
 - Application utilizes the Google Maps API and Zomato API.
-- All data requests are retrieved in an asynchronous manner using either the Fetch API.
+- All data requests are retrieved in an asynchronous manner using Fetch API.
 
 
 ### Offline Use
