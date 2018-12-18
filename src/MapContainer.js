@@ -98,8 +98,10 @@ class MapContainer extends Component {
              <div className="location-list container">
                  <ol className="location-list">
                  {this.props.locations.map((location) => (
-                     <li key={location.name} className="location-list-item" location={location} onClick={() => this.onListItemClick(location)}>
-                     {location.name}</li>
+                     <button key={location.name}                        className="location-list-item" location={location} onClick={() => this.onListItemClick(location)}>
+                     {location.name}
+                         </button>
+                     
              ))}
          </ol>
          </div>

@@ -43,7 +43,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1> Grab a bite near Central Park, NY</h1>
-          <button onClick={this.onToggleMenu}><FaBars/></button>
+          <button className="toggle-menu" onClick={this.onToggleMenu}><FaBars/></button>
         </header>
         <MapContainer toggleMenu={this.state.toggleMenu}
                      locations={showingLocations}
