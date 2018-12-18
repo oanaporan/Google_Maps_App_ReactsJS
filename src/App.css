@@ -14,7 +14,7 @@
   padding-left: 40px;
   
 }
-button {
+.toggle-menu {
   position: absolute;
   min-width: 55px;
   min-height: 35px;
@@ -58,12 +58,15 @@ ol.location-list {
   padding: 35px;
   padding-bottom: 10px;
   line-height: 2;
-  font-size: medium;
-  list-style-type: none;
+  
+}
+button.location-list-item {
+  width: 100%;
   text-align: initial;
+  font-size: medium;  
 }
 
-li.location-list-item:hover {
+button.location-list-item:hover {
   color: #23a6ca;
 }
 
