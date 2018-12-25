@@ -16,18 +16,27 @@ class MapContainer extends Component {
         locationData: {}
     }
 
+
+
     mapReady = (props, map) => {
         this.setState({map})
     }
 
     onClickMarker = (props, marker, e) => {
-        this.setState({ showInfoWindow: true, activeMarker: marker, activeMarkerProps: props})
+        this.setState({ showInfoWindow: true, activeMarker: marker, activeMarkerProps: props}) 
     }
 
-    onListItemClick = (location) => {
-        this.setState({ selectedLocation : location , showDetails : true})
 
-    
+    onListItemClick = (location, marker) => {
+        this.setState({ selectedLocation : location , showDetails : true, activeMarker : location})
+
+        let markers = this.props.markers;
+        let filtered = markers.filter((marker) => marker.name === location.name);
+
+        filtered.setAnimation(window.google.maps.Animation.BOUNCE);
+        setTimeout(() => {filtered.setAnimation(-1)}, 730);
+
+
         let {name} = location; 
         let { lat, lng } = location.position;
         ZomatoAPI.get(name, lat, lng).then(response => {
@@ -37,13 +46,12 @@ class MapContainer extends Component {
                 return this.setState({ locationData : response[0].restaurant })
                 }
             })
-
         }
     
     
 
     render() {
-        let { locations} = this.props
+        let { markers} = this.props
         let { activeMarker, activeMarkerProps } = this.state;
         return(
             <div>
@@ -58,16 +66,16 @@ class MapContainer extends Component {
                     lat: 40.7687463,
                      lng: -73.980931315
                  }}>
-                 {locations && locations.map((location) => (
+                 {markers && markers.map((marker) => (
                      <Marker
                             role='application'
                             aria-label='map'
-                            key={location.name}
-                            position={location.position}
-                            animation={activeMarker ? (location.name === Marker.name ? '1' : '2') : '1'}
-                            name={location.name}
-                            address={location.address}
-                            url={location.url}
+                            key={marker.name}
+                            position={marker.position}
+                            animation={window.google.maps.Animation.DROP}
+                            name={marker.name}
+                            address={marker.address}
+                            url={marker.url}
                             onClick={this.onClickMarker}/>
                             
                  ))}
@@ -102,7 +110,10 @@ class MapContainer extends Component {
              <div className="location-list container">
                  <ol className="location-list">
                  {this.props.locations.map((location) => (
-                     <button key={location.name}                        className="location-list-item" location={location} onClick={() => this.onListItemClick(location)}>
+                     <button 
+                     key={location.name}                        className="location-list-item" 
+                     location={location} 
+                     onClick={() => this.onListItemClick(location)}>
                      {location.name}
                          </button>
                      

@@ -11,9 +11,13 @@ import sortBy from 'sort-by';
 
 class App extends Component {
   state = {
-    allLocations: locations,
+    allLocations: {},
     query : '',
     toggleMenu: false,
+  }
+
+  componentWillMount() {
+    this.setState({ allLocations : locations})
   }
 
   onToggleMenu = () => {
@@ -25,8 +29,6 @@ class App extends Component {
   }
 
   
-    
-
   render() {
     const { allLocations, query } = this.state
     let showingLocations 
@@ -47,6 +49,7 @@ class App extends Component {
         </header>
         <MapContainer toggleMenu={this.state.toggleMenu}
                      locations={showingLocations}
+                     markers={showingLocations}
                       query={this.state.query}
                       onUpdateQuery={this.updateQuery}
                       onListItemClick={this.onListItemClick}
