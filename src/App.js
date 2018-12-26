@@ -48,8 +48,8 @@ class App extends Component {
           <button className="toggle-menu" onClick={this.onToggleMenu}><FaBars/></button>
         </header>
         <MapContainer toggleMenu={this.state.toggleMenu}
-                     locations={showingLocations}
-                     markers={showingLocations}
+                      locations={showingLocations}
+                      markers={showingLocations}
                       query={this.state.query}
                       onUpdateQuery={this.updateQuery}
                       onListItemClick={this.onListItemClick}

@@ -16,8 +16,6 @@ class MapContainer extends Component {
         locationData: {}
     }
 
-
-
     mapReady = (props, map) => {
         this.setState({map})
     }
@@ -25,17 +23,11 @@ class MapContainer extends Component {
     onClickMarker = (props, marker, e) => {
         this.setState({ showInfoWindow: true, activeMarker: marker, activeMarkerProps: props}) 
     }
-
-
-    onListItemClick = (location, marker) => {
-        this.setState({ selectedLocation : location , showDetails : true, activeMarker : location})
-
-        let markers = this.props.markers;
-        let filtered = markers.filter((marker) => marker.name === location.name);
-
-        filtered.setAnimation(window.google.maps.Animation.BOUNCE);
-        setTimeout(() => {filtered.setAnimation(-1)}, 730);
-
+    onInfoWindowClose = () =>
+    this.setState({ activeMarker: {}, showingInfoWindow: false, activeMarkerProps: {} });
+    
+    onListItemClick = (location) => {
+        this.setState({ selectedLocation : location , showDetails : true})
 
         let {name} = location; 
         let { lat, lng } = location.position;
@@ -52,7 +44,7 @@ class MapContainer extends Component {
 
     render() {
         let { markers} = this.props
-        let { activeMarker, activeMarkerProps } = this.state;
+        let { activeMarker, activeMarkerProps} = this.state;
         return(
             <div>
             <div style={{ height: 'calc(100%-10vmin', width: '100%'}}>
@@ -72,8 +64,10 @@ class MapContainer extends Component {
                             aria-label='map'
                             key={marker.name}
                             position={marker.position}
-                            animation={window.google.maps.Animation.DROP}
                             name={marker.name}
+                            animation={marker.name === this.state.selectedLocation.name ? window.google.maps.Animation.BOUNCE
+                                : window.google.maps.Animation.DROP
+                                }
                             address={marker.address}
                             url={marker.url}
                             onClick={this.onClickMarker}/>
@@ -81,7 +75,8 @@ class MapContainer extends Component {
                  ))}
                     <InfoWindow 
                             marker={activeMarker}
-                            visible={this.state.showInfoWindow}>
+                            visible={this.state.showInfoWindow}
+                            onClose={this.state.onInfoWindowClose}>
                          <div className='info-window'>
                          <h4>{activeMarkerProps.name}</h4>
                          <p>{activeMarkerProps.address}</p>
