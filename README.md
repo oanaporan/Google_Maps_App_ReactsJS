@@ -1,6 +1,6 @@
 ### React Google Maps Final Project
 
-Udacity's final project, a single page React App, featuring google maps, a list of locations with on map markers, a filter locations options for finding locations easier, and a third API for rendering details about the map locations. 
+A single page React App, featuring google maps, a list of locations with on map markers, a filter locations options for finding locations easier, and a third API for rendering details about the map locations. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
